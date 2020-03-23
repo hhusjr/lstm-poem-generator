@@ -84,8 +84,6 @@ class PoemModel:
                 )
                 y_vec[0, self._preprocessed.word2id(y)] = True
 
-                print(x, y)
-
                 yield x_vec, y_vec
 
     def test_sample(self, epochs, logs):
@@ -96,11 +94,6 @@ class PoemModel:
         print(self._predictor.predict_random())
 
     def train(self):
-        generator = self.data_generator()
-        while True:
-            x, y = next(generator)
-            # print(x, y)
-        """
         log('Training model...')
         tb_callback = TensorBoard(log_dir='./logs', histogram_freq=1, write_grads=True)
         if not self._model:
@@ -117,4 +110,3 @@ class PoemModel:
                 ModelCheckpoint(self._weight_file, save_weights_only=False)
             ]
         )
-        """
